@@ -25,7 +25,7 @@
 
 // 一个小优化：
 // 比较的表达式可以这样写 if (-nums[i] >nums[j])；
-// 有两种情况满足这个表达式：
+// 表达式为true的情况：
 // 当nums[i]为负，nums[j] 为正，平方后左边的大
 // 当nums[i]为负，nums[j] 为负，平方后左边的大
 var sortedSquares = function(nums) {
