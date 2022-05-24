@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 
-// 暴力解，一个双for循环；
+// 暴力解，一个双for循环对所有项进行枚举；
 var twoSum = function (nums, target) {
   for (let i = 0; i < nums.length - 1; i++) {
     for (let j = i + 1; j < nums.length; j++) {
