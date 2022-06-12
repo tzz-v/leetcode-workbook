@@ -2,6 +2,9 @@
  * @param {string[]} ops
  * @return {number}
  */
+
+// 模拟；
+// 遍历ops，根据ops[i]对arr进行操作，最后返回arr的累加结果
 var calPoints = function (ops) {
   const arr = [];
   for (let i = 0; i < ops.length; i++) {
