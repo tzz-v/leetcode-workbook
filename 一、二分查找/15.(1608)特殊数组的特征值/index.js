@@ -58,7 +58,5 @@ const getSumByGreaterThanValue = (val, arr) => {
       i = mid + 1;
     }
   }
-  if (index !== -1) {
-    return arr.length - index;
-  }
+  return arr.length - index;
 };
