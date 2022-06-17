@@ -28,7 +28,7 @@ var specialArray = function (nums) {
 };
 
 // 可以将nums先排个序，这样内层计算也可以使用二分查找；
-// 时间复杂度为O(logn) + 排序的时间复杂度
+// 时间复杂度为O(logn * logn) + 排序的时间复杂度
 var specialArray = function (nums) {
   let l = 0;
   let r = nums.length;
