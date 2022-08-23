@@ -12,7 +12,7 @@
  */
 
 // 同层序遍历，有选择的进行res的push操作；
-// 只pushqueue的队列的最后一项，即当前层的最右项。
+// 只push queue的队列的最后一项的值，即当前层的最右项。
 var rightSideView = function (root) {
   const res = [];
   if (!root) return res;
