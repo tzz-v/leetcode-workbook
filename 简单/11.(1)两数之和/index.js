@@ -12,3 +12,14 @@ var twoSum = function (nums, target) {
     }
   }
 };
+
+// 通过map保存遍历后的值，使用单个for循环解决问题。
+var twoSum = function (nums, target) {
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(target - nums[i])) {
+      return [i, map.get(target - nums[i])];
+    }
+    map.set(nums[i], i);
+  }
+};
