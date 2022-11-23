@@ -7,6 +7,7 @@
 
 // 动态规划
 // 建立一个dp数组
+// 确认dp数组初始值【0，1】
 // 确认公式： dp[i] = dp[i - 1] + dp[i - 2];
 // 遍历推导 得到最终的dp[i];
 function fib(n: number): number {
