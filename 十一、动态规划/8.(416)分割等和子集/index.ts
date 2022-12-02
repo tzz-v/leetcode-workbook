@@ -1,3 +1,6 @@
+// [0-1]背包
+// dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
+
 function canPartition(nums: number[]): boolean {
   let target = 0;
   for (let val of nums) {
