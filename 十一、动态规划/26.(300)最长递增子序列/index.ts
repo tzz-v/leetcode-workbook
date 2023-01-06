@@ -1,5 +1,5 @@
 // 动态规划
-// dp[i]: 数组长度为i时的最长递增子序列的长度
+// dp[i]: nums前i个元素，以nums[i]结尾，最长递增子序列的长度
 // dp[i] = Math.max(dp[j], dp[j] + 1);
 
 function lengthOfLIS(nums: number[]): number {
@@ -12,5 +12,5 @@ function lengthOfLIS(nums: number[]): number {
       }
     }
   }
-  return Math.max.call(null, ...dp);
+  return Math.max(...dp);
 }
