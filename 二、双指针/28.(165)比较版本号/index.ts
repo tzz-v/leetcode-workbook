@@ -21,3 +21,8 @@ function compareVersion(version1: string, version2: string): number {
   }
   return 0;
 }
+const aa = [
+  [1, 4, 5],
+  [2, 3, 6],
+  [6, 4, 9],
+];
