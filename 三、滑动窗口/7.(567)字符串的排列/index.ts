@@ -1,6 +1,8 @@
-// 根据题意，只需要比较s1和s2子串中字母的数量，数量一致返回true；
+// 根据题意，只需要比较s1和s2子串中字母的数量；
 
 // 使用滑动窗口，依次进行比较。
+// 利用数组来保存两个字符串中各个字母的长度。
+// 转成字符串后进行比较，完全相等，则说明数量一致，返回true。
 function checkInclusion(s1: string, s2: string): boolean {
   const len1 = s1.length;
   const arr1 = new Array(26).fill(0);
