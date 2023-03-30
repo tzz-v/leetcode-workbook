@@ -3,7 +3,7 @@
 // 滑动窗口。
 // 得到最后的左右边界
 
-// 注：可以通过二分 来查找最接近的数字，将低查找部分的时间复杂度。
+// 注：可以通过二分 来查找最接近的数字，降低查找部分的时间复杂度。
 
 function findClosestElements(arr: number[], k: number, x: number): number[] {
   if (x < arr[0]) {
