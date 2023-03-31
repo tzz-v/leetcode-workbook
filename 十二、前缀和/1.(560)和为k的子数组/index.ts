@@ -7,7 +7,7 @@ function subarraySum(nums: number[], k: number): number {
   let sum = 0;
   let res = 0;
 
-  for (let val of nums) {
+  for (const val of nums) {
     sum += val;
     const cur = map.get(sum - k);
     // 假设当前项的下标是j，
