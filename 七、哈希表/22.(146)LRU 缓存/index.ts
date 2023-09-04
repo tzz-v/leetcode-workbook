@@ -9,12 +9,13 @@ class LRUCache {
   }
 
   get(key: number): number {
-    const val = this.map.get(key);
-    if (val) {
+    if (this.map.has(key)) {
+      const val = this.map.get(key) as number;
       this.map.delete(key);
       this.map.set(key, val);
+      return val;
     }
-    return val ?? -1;
+    return -1;
   }
 
   put(key: number, value: number): void {
