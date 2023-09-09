@@ -1,3 +1,5 @@
+// 遍历数组，找到区间范围。
+
 function summaryRanges(nums: number[]): string[] {
   if (!nums.length) return [];
   const res: string[] = [];
