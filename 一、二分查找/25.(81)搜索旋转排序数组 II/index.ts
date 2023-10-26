@@ -1,4 +1,4 @@
-//
+// 同19.(33)搜索旋转排序数组
 function search(nums: number[], target: number): boolean {
   nums = Array.from(new Set(nums));
   let l = 0;
