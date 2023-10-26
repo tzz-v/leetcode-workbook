@@ -19,9 +19,9 @@ const findItem = (arr: number[], target: number) => {
     const mid = Math.floor((l + r) / 2);
     if (arr[mid] <= target) {
       res = mid + 1;
-      l++;
+      l = mid + 1;
     } else {
-      r--;
+      r = mid - 1;
     }
   }
 

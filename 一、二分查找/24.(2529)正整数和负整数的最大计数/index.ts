@@ -22,9 +22,9 @@ function maximumCount(nums: number[]): number {
   while (l <= r) {
     const mid = Math.floor((l + r) / 2);
     if (nums[mid] <= 0) {
-      l++;
+      l = mid + 1;
     } else {
-      r--;
+      r = mid - 1;
       rIndex = mid;
     }
   }
