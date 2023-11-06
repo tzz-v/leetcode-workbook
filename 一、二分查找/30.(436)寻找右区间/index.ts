@@ -1,3 +1,5 @@
+// 找到元素的右区间元素
+// 右区间元素：右区间元素【0】大于当前元素【1】&& 最接近当前元素【1】
 // 给数组进行排序，然后使用二分查找找到对应元素下标；
 // 排序复杂度：O（nlogn）；二分查找复杂度：O（nlogn）；总时间复杂度：O（nlogn）
 function findRightInterval(intervals: number[][]): number[] {
