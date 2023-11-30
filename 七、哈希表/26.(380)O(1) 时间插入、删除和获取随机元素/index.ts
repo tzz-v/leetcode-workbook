@@ -5,7 +5,7 @@
 
 class RandomizedSet {
   arr: number[] = [];
-  map = new Map<number, number>();
+  map = new Map();
 
   insert(val: number): boolean {
     if (this.map.has(val)) {
@@ -20,9 +20,9 @@ class RandomizedSet {
   remove(val: number): boolean {
     const i = this.map.get(val);
     if (i === undefined) return false;
-    const last = this.arr.pop() as number;
-    this.arr[i] = last;
-    this.map.set(last, i);
+    this.arr[i] = this.arr[this.arr.length - 1];
+    this.map.set(this.arr[i], i);
+    this.arr.pop();
     this.map.delete(val);
     return true;
   }
