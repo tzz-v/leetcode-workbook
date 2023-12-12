@@ -1,30 +1,19 @@
 const fs = require('fs');
 const func = () => {
-  setTimeout(() => console.log('setTimeout'), 1000);
-
-  new Promise((res) => {
-    console.log('promise before 1');
-    res();
-  }).then(() => {
+  setTimeout(() => {
+    console.log('timeout 1');
+  }, 10);
+  Promise.resolve().then(() => {
     console.log('promise 1');
-    new Promise((res) => {
-      console.log('promise before 2');
-      res();
-    }).then(() => {
-      console.log('promise 2');
+  });
+  process.nextTick(() => {
+    console.log('next 1');
+    process.nextTick(() => {
+      console.log('next 2');
     });
   });
-
-  fs.readFile('./poll.js', () => {
-    console.log('read 1');
-    fs.readFile('./poll.js', () => {
-      console.log('read 2');
-    });
-    wait(2000);
-  });
-  fs.readFile('./poll.js', () => {
-    console.log('read 3');
-    wait(20);
+  process.nextTick(() => {
+    console.log('next 3');
   });
 };
 
