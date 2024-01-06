@@ -1,5 +1,5 @@
 // 贪心+ 单调栈；
-// 检查当前字符之前的字符last是否大于当前字符且字符last当前字符在之后存在重复值。此时，将last字符移除，保留之后的重复值
+// 检查当前字符之前的字符last是否大于当前字符且字符last当前字符在之后存在重复值。此时，将
 
 function removeDuplicateLetters(s: string): string {
   const vis = new Array(26).fill(0).reduce((prev, _, index) => {
