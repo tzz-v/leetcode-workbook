@@ -4,6 +4,8 @@
 //   cur为奇数 && 存在最后一个偶数，则（-lastEven + cur）（奇数减掉一个偶数加上一个奇数之后和为偶数）；
 //   cur为偶数 && 存在最后一个奇数，则（-lastOdd + cur）（奇数减掉一个奇数加上一个偶数之后和为偶数）；
 //   不符合条件返回 0；
+
+// 时间复杂度O（n）
 function maxmiumScore(cards: number[], cnt: number): number {
   let res = 0;
   cards.sort((a, b) => b - a);
