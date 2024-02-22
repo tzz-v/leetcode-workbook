@@ -4,7 +4,7 @@
   "description": "'日常刷题记录'",
   "main": "README.md",
   "scripts": {
-    "addq": "node -e \"const { exec } = require('child_process'); const path = require('path'); const currentDir = process.cwd(); const scriptPath = 'create.sh'; exec('sh ' + scriptPath + ' ' + currentDir , (error, stdout, stderr) => { if (error) { console.error('执行脚本时发生错误：', error); return; } console.log('脚本执行成功！'); console.log('输出：', stdout); console.error('错误信息：', stderr); });\"",
+    "addq": "node addq.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
