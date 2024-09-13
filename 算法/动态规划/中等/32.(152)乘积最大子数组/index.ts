@@ -1,3 +1,4 @@
+// 维护一个 正最大值max和负最大值。
 function maxProduct(nums: number[]): number {
   let max = nums[0] > 0 ? nums[0] : 0;
   let min = nums[0] < 0 ? nums[0] : 0;
