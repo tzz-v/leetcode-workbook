@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    // 其他配置...
+    "lib": [
+      "es2021"
+    ],
+    "target": "es2021",
+    "module": "commonjs"
+  },
+  "include": [
+    "**/*"
+  ]
+}
