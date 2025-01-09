@@ -5,6 +5,7 @@
   "main": "README.md",
   "scripts": {
     "addq": "node addq.js",
+    "req": "ts-node ./leetcodeAPI.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/tzz-v/leetcode-workbook/issues"
   },
-  "homepage": "https://github.com/tzz-v/leetcode-workbook#readme"
+  "homepage": "https://github.com/tzz-v/leetcode-workbook#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
 }
