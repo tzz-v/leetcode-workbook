@@ -1,0 +1,96 @@
+name: 代码质量检查
+
+# 触发条件：推送到任何分支，或者创建Pull Request
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['master', 'main']
+
+jobs:
+  code-quality:
+    name: 代码质量检查
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      # 检出代码
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      # 设置Node.js环境
+      - name: 设置 Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      # 安装依赖
+      - name: 安装依赖
+        run: yarn install --frozen-lockfile
+
+      # 运行ESLint检查
+      - name: 运行 ESLint 检查
+        run: yarn lint
+
+      # 运行Prettier格式检查
+      - name: 运行 Prettier 格式检查
+        run: yarn format:check
+
+      # 运行TypeScript类型检查
+      - name: 运行 TypeScript 类型检查
+        run: npx tsc --noEmit
+
+      # 如果是Pull Request，添加评论显示检查结果
+      - name: 添加 PR 评论
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ 代码质量检查失败！请运行 `yarn lint:fix` 和 `yarn format` 来修复问题。'
+            })
+
+  # 自动修复作业（仅在推送到非主分支时运行）
+  auto-fix:
+    name: 自动修复格式问题
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'yarn'
+
+      - name: 安装依赖
+        run: yarn install --frozen-lockfile
+
+      - name: 运行自动修复
+        run: |
+          yarn lint:fix
+          yarn format
+
+      - name: 提交修复
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "没有需要修复的格式问题"
+          else
+            git commit -m "🎨 自动修复代码格式 [skip ci]"
+            git push
+          fi
