@@ -2,7 +2,7 @@
   "compilerOptions": {
     // 其他配置...
     "lib": [
-      "es2021",
+      "ESNext",
       "dom"
     ],
     "target": "es2021",
